@@ -3,7 +3,7 @@ fetch('http://localhost:5000/api/projects')
   .then(projects => {
     const container = document.getElementById('project-section');
     container.innerHTML = projects.slice(0, 3).map(p => `
-      <div class="card">          
+      <div class="card">
         <figure class="card-img">
           <a href="${p.link}" target="_blank">
             <img src="${p.image}" alt="${p.title}" />
@@ -16,4 +16,5 @@ fetch('http://localhost:5000/api/projects')
         </div>
       </div>
     `).join('');
-  });
+  })
+  .catch(err => console.error('Fetch error:', err));
